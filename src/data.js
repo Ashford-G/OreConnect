@@ -4,7 +4,7 @@ export const prices = [
 ];
 export const nav = ["Minerals", "Buyers", "Equipment", "Suppliers", "Services", "Jobs", "Map", "Prices"];
 export const img = {
-  hero: "https://images.unsplash.com/photo-1578319439584-104c94d37305?auto=format&fit=crop&w=2000&q=80",
+  hero: "/oreconnect-hero.jpg",
   slides: [
     ["https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80", "Chrome", "Lumpy ore from permitted Great Dyke claims"],
     ["https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80", "Equipment", "Crushers, mills and trucks, inspected"],
