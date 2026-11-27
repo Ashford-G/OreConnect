@@ -1,2 +1,0 @@
-import {createServerClient} from "@supabase/ssr"; import {cookies} from "next/headers";
-export async function createClient(){const c=await cookies(),u=process.env.NEXT_PUBLIC_SUPABASE_URL,k=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;if(!u||!k)throw new Error("Missing Supabase environment variables");return createServerClient(u,k,{cookies:{getAll(){return c.getAll()},setAll(items){try{items.forEach(({name,value,options})=>c.set(name,value,options))}catch{}}}})}
