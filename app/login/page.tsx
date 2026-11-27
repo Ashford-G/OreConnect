@@ -1,1 +1,0 @@
-import "../simple.css"; import Link from "next/link"; export default function Page(){return <main className="simple-page"><small>WELCOME BACK</small><h1>Sign in to OreConnect.</h1><p>Secure sign-in will be implemented in the authentication slice using Supabase Auth.</p><Link className="button" href="/register">Create an account</Link></main>}
