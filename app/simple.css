@@ -1,0 +1,6 @@
+.simple-page{min-height:100vh;padding:clamp(28px,7vw,90px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;max-width:940px;margin:auto;background:radial-gradient(circle at 85% 15%,#f5a62322,transparent 30%),#f4f6f8;color:#14293f}
+.simple-page small{font-weight:800;letter-spacing:2px;color:#a66a08;text-transform:uppercase}
+.simple-page h1{font:800 clamp(38px,7vw,68px)/1.04 Manrope,Arial,sans-serif;letter-spacing:-2px;margin:20px 0}
+.simple-page p{font-size:17px;line-height:1.7;color:#5c6877;max-width:680px}
+.simple-page .button{display:inline-flex;margin-top:18px;padding:14px 22px;border-radius:999px;background:#f5a623;color:#171717;font-weight:800}
+.simple-page .notice{max-width:700px;margin:18px 0;padding:18px 20px;border:1px solid #e3c58d;border-radius:14px;background:#fff8e9;color:#71501a;line-height:1.6}
