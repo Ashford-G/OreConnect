@@ -1,0 +1,98 @@
+/* ORECONNECT DESIGN CORRECTION — typography hierarchy and uncropped hero image */
+
+/* Editorial serif: reserve for statements and title-level headings. */
+.oc-market-home .oc-hero-new h1,
+.oc-market-home .oc-search-panel h2,
+.oc-market-home .oc-section-heading h2,
+.oc-market-home .oc-join h2,
+.app-shell.authenticated .page-heading h1,
+.app-shell.authenticated .section-title-row h2,
+.app-shell.authenticated .section-heading h2,
+.app-shell.authenticated .panel-heading h2,
+.app-shell.authenticated .modal-head h2,
+.app-shell.authenticated .welcome-panel h2,
+.app-shell.authenticated .company-banner-copy h2 {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Modern sans: all navigation, controls, metadata and operational data. */
+.app-shell .topbar,
+.app-shell .sidebar,
+.app-shell .nav-link,
+.app-shell .sidebar-label,
+.app-shell button,
+.app-shell input,
+.app-shell select,
+.app-shell textarea,
+.app-shell table,
+.app-shell th,
+.app-shell td,
+.app-shell .eyebrow,
+.app-shell .metric-card strong,
+.app-shell .metric-card span,
+.app-shell .listing-price,
+.app-shell .status-pill,
+.app-shell .category-tag,
+.app-shell .company-description,
+.app-shell .listing-desc,
+.app-shell .rfq-card p,
+.app-shell .toolbar,
+.oc-market-home .oc-overline,
+.oc-market-home .oc-proof,
+.oc-market-home .oc-button,
+.oc-market-home .oc-search-panel label,
+.oc-market-home .oc-search-input,
+.oc-market-home .oc-search-controls,
+.oc-market-home .oc-category-grid button,
+.oc-market-home .oc-company-card small,
+.oc-market-home .oc-card-type,
+.oc-market-home .oc-listing-top strong,
+.oc-market-home .oc-listing-meta,
+.oc-market-home .oc-request-category,
+.oc-market-home .oc-request-card small,
+.oc-market-home .oc-footer,
+.oc-market-home .oc-photo-caption small {
+  font-family: "DM Sans", Arial, sans-serif !important;
+}
+
+/* Business names and listing titles may use editorial serif; figures remain sans. */
+.oc-market-home .oc-company-card h3,
+.oc-market-home .oc-listing-card h3,
+.oc-market-home .oc-request-card h3 {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 600 !important;
+}
+.oc-market-home .oc-listing-top strong,
+.app-shell.authenticated .metric-card strong {
+  font-family: "DM Sans", Arial, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Keep the hero photograph fully visible instead of cropping it with cover.
+   The dark panel fills any unused space around the photograph. */
+.oc-market-home .oc-hero-image {
+  background-color: #202923 !important;
+  background-image:
+    linear-gradient(90deg, rgba(32,41,35,.14), rgba(32,41,35,0)),
+    url("https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1800&q=90") !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: center, center !important;
+  background-size: 100% 100%, contain !important;
+  min-height: 480px;
+}
+
+@media (max-width: 900px) {
+  .oc-market-home .oc-hero-image {
+    min-height: 340px;
+    background-size: 100% 100%, contain !important;
+  }
+}
+@media (max-width: 650px) {
+  .oc-market-home .oc-hero-image {
+    min-height: 250px;
+    background-size: 100% 100%, contain !important;
+  }
+}
