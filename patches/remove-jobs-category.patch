@@ -1,9 +1,8 @@
---- a/src/components/PublicMarketplaceHome.jsx
-+++ b/src/components/PublicMarketplaceHome.jsx
+*** Begin Patch
+*** Update File: src/App.jsx
 @@
 -  ["jobs", "Jobs & recruitment"],
-
---- a/src/App.jsx
-+++ b/src/App.jsx
+*** Update File: src/components/PublicMarketplaceHome.jsx
 @@
 -  ["jobs", "Jobs & recruitment"],
+*** End Patch
