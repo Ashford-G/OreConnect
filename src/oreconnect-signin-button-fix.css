@@ -1,0 +1,36 @@
+/*
+ * OreConnect targeted launch fixes
+ * Add these rules to the END of src/oreconnect-shipx.css.
+ * This makes the public-header Sign in button match Get started.
+ */
+
+/* Sign in button: match the existing gold Get started pill */
+.sx-nav nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sx-gold, #f0a81c);
+  color: var(--sx-gold-ink, #1a1405);
+  font-family: var(--sx-sans, "DM Sans", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+
+.sx-nav nav button:hover {
+  background: #ffb935;
+  color: var(--sx-gold-ink, #1a1405);
+  transform: translateY(-1px);
+}
+
+.sx-nav nav button:focus-visible {
+  outline: 3px solid rgba(240, 168, 28, .45);
+  outline-offset: 3px;
+}
