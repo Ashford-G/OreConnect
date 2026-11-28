@@ -56,6 +56,7 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState({ type: "", text: "" });
   const [authMode, setAuthMode] = useState("signin");
+  const [authEmail, setAuthEmail] = useState("");
   const [showAuth, setShowAuth] = useState(false);
   const [showCompany, setShowCompany] = useState(false);
   const [showListing, setShowListing] = useState(false);
@@ -204,6 +205,37 @@ function App() {
     finally { setBusy(false); }
   };
 
+ const resendConfirmation = async () => {
+  const email = authEmail.trim();
+
+  if (!email) {
+    return flash("Enter your email address first.", "error");
+  }
+
+  setBusy(true);
+
+  try {
+    const { error } = await supabase.auth.resend({
+      type: "signup",
+      email,
+      options: {
+        emailRedirectTo: "https://ore-connect-liart.vercel.app",
+      },
+    });
+
+    if (error) throw error;
+
+    flash(
+      "If this address has an unconfirmed OreConnect account, a fresh confirmation email has been sent. Check your inbox and spam folder.",
+      "info"
+    );
+  } catch (error) {
+    flash(messageOf(error), "error");
+  } finally {
+    setBusy(false);
+  }
+}; 
+  
   const createCompany = async (event) => {
     event.preventDefault(); setBusy(true);
     const form = new FormData(event.currentTarget);
@@ -437,10 +469,30 @@ function App() {
       {showAuth && <Modal title={authMode === "signin" ? "Sign in to OreConnect" : "Create your OreConnect account"} onClose={() => setShowAuth(false)}>
         <form className="form-stack" onSubmit={handleAuth}>
           {authMode === "signup" && <Field label="Full name"><input name="full_name" required minLength="2" placeholder="Your full name" /></Field>}
-          <Field label="Email address"><input name="email" type="email" required placeholder="you@company.com" autoComplete="email" /></Field>
+          <Field label="Email address">
+  <input
+    name="email"
+    type="email"
+    required
+    placeholder="you@company.com"
+    autoComplete="email"
+    value={authEmail}
+    onChange={(event) => setAuthEmail(event.target.value)}
+  />
+</Field>
           <Field label="Password"><input name="password" type="password" required minLength="8" placeholder="At least 8 characters" autoComplete={authMode === "signup" ? "new-password" : "current-password"} /></Field>
           <button className="btn btn-primary btn-wide" disabled={busy}>{busy ? "Please wait…" : authMode === "signin" ? "Sign in" : "Create account"}</button>
           <p className="form-switch">{authMode === "signin" ? "New to OreConnect?" : "Already registered?"} <button type="button" onClick={() => setAuthMode(authMode === "signin" ? "signup" : "signin")}>{authMode === "signin" ? "Create an account" : "Sign in"}</button></p>
+          {authMode === "signin" && (
+  <button
+    type="button"
+    className="btn btn-secondary btn-wide"
+    onClick={resendConfirmation}
+    disabled={busy || !authEmail.trim()}
+  >
+    {busy ? "Please wait…" : "Resend confirmation email"}
+  </button>
+)}
         </form>
       </Modal>}
 
