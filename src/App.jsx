@@ -12,6 +12,7 @@ import "./app.css";
 import PublicMarketplaceHome from "./components/PublicMarketplaceHome";
 import "./oreconnect-home.css";
 import "./oreconnect-design.css";
+import "./oreconnect-shipx.css";
 
 const BUSINESS_TYPES = [
   ["mine_operator", "Mine operator"],
@@ -551,7 +552,7 @@ function App() {
   if (loading) {
     return (
       <div className="loading-screen">
-        <div className="brand-mark">OC</div>
+        <img className="brand-logo" src="/oreconnect-logo.png" alt="OreConnect" />
         <p>Loading OreConnect…</p>
       </div>
     );
@@ -576,7 +577,7 @@ function App() {
             setTab("overview");
           }}
         >
-          <span className="brand-mark"><HardHat size={20} /></span>
+          <img className="brand-logo" src="/oreconnect-logo.png" alt="" />
           <span>Ore<span>Connect</span></span>
         </a>
 
@@ -1096,7 +1097,7 @@ function ConfigScreen() {
   return (
     <div className="config-screen">
       <div className="config-card">
-        <div className="brand-mark"><HardHat /></div>
+        <img className="brand-logo" src="/oreconnect-logo.png" alt="OreConnect" />
         <p className="eyebrow">ORECONNECT SETUP</p>
         <h1>Connect your Supabase project</h1>
         <p>
