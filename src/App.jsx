@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { hasSupabaseConfig, supabase } from "./lib/supabase";
 import "./app.css";
+import PublicMarketplaceHome from "./components/PublicMarketplaceHome";
+import "./oreconnect-home.css";
 
 const BUSINESS_TYPES = [
   ["mine_operator", "Mine operator"],
@@ -563,7 +565,7 @@ function App() {
   ];
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${session ? "authenticated" : "public-mode"}`}>
       <header className="topbar">
         <a
           className="brand"
@@ -681,7 +683,7 @@ function App() {
           )}
 
           {!session ? (
-            <PublicHome
+            <PublicMarketplaceHome
               companies={filteredCompanies}
               listings={filteredListings}
               rfqs={filteredRfqs}
