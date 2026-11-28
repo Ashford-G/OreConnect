@@ -11,6 +11,7 @@ import { hasSupabaseConfig, supabase } from "./lib/supabase";
 import "./app.css";
 import PublicMarketplaceHome from "./components/PublicMarketplaceHome";
 import "./oreconnect-home.css";
+import "./oreconnect-design.css";
 
 const BUSINESS_TYPES = [
   ["mine_operator", "Mine operator"],
