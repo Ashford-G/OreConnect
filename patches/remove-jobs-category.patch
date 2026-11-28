@@ -1,1 +1,9 @@
-c
+--- a/src/components/PublicMarketplaceHome.jsx
++++ b/src/components/PublicMarketplaceHome.jsx
+@@
+-  ["jobs", "Jobs & recruitment"],
+
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@
+-  ["jobs", "Jobs & recruitment"],
