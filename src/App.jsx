@@ -13,6 +13,7 @@ import PublicMarketplaceHome from "./components/PublicMarketplaceHome";
 import "./oreconnect-home.css";
 import "./oreconnect-design.css";
 import "./oreconnect-shipx.css";
+import "./oreconnect-typography.css";
 
 const BUSINESS_TYPES = [
   ["mine_operator", "Mine operator"],

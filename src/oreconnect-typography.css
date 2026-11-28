@@ -1,0 +1,144 @@
+/* ==========================================================================
+   OreConnect — Global editorial typography system
+   Loaded last in App.jsx. Presentation only: no logic depends on this file.
+   Playfair Display = editorial headings. DM Sans = everything operational.
+   ========================================================================== */
+
+:root {
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Display + heading scale (fluid, stays readable on phones) */
+  --fs-display: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --fs-h1: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+  --fs-h2: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  --fs-h3: 1.0625rem;
+  --fs-empty: clamp(1.25rem, 1.1rem + .6vw, 1.5rem);
+
+  /* Body scale */
+  --fs-lg: 1.0625rem;
+  --fs-base: 0.9375rem;
+  --fs-sm: 0.8125rem;
+  --fs-xs: 0.75rem;
+
+  --lh-display: 1.04;
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --lh-tight: 1.3;
+
+  --fw-serif: 500;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --ls-display: -0.025em;
+  --ls-heading: -0.015em;
+  --ls-label: 0.08em;
+
+  /* Keep older layers in sync */
+  --sx-serif: var(--font-serif);
+  --sx-sans: var(--font-sans);
+}
+
+/* ---------- Base: DM Sans everywhere ---------- */
+html, body, #root, .app-shell, .sx-shell {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, select, textarea, a, label, table, th, td, nav,
+.btn, .nav-link, .field, .user-chip, .company-switch, .search-box {
+  font-family: var(--font-sans);
+}
+p, .muted, .listing-desc, .card-meta, .notice { font-size: var(--fs-base); line-height: var(--lh-body); }
+small, .small { font-size: var(--fs-sm); }
+
+/* ---------- Editorial serif: hero, page titles, section headings ---------- */
+.public-home h1, .sx-shell h1, .hero-copy h1 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-serif);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+.public-home h1 em, .sx-shell h1 em, .page-heading h1 em { font-style: italic; font-weight: var(--fw-serif); }
+
+.page-heading h1, .main-content > h1, .loading-screen h1 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-serif);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  margin: 0;
+}
+.public-home h2, .sx-shell h2, .section-heading h2, .panel-heading h2,
+.welcome-panel h2, .public-section h2, .public-cta h2, .modal-head h2 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-serif);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+/* Compact panels/modals: serif but smaller so dense screens stay calm */
+.panel-heading h2, .modal-head h2 { font-size: clamp(1.25rem, 1.1rem + .5vw, 1.5rem); }
+.empty-state h2, .empty-state h3, .empty-state b, .sx-empty b {
+  font-family: var(--font-serif);
+  font-size: var(--fs-empty);
+  font-weight: var(--fw-serif);
+  line-height: var(--lh-tight);
+}
+
+/* ---------- Dense content: card titles stay sans ---------- */
+.listing-card h3, .rfq-card h3, .company-grid h3, .stack-cards h3,
+.listing-card-head h3, .rfq-card-top h3 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.005em;
+}
+
+/* ---------- Labels / eyebrows ---------- */
+.eyebrow, .sidebar-label, th, .field > span:first-child {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.field > span:first-child { text-transform: none; letter-spacing: 0; font-size: var(--fs-sm); }
+
+/* ---------- Navigation and buttons ---------- */
+.nav-link { font-size: var(--fs-base); font-weight: var(--fw-medium); letter-spacing: 0; }
+.btn { font-size: var(--fs-base); font-weight: var(--fw-semibold); letter-spacing: 0; }
+.btn-small { font-size: var(--fs-sm); }
+.nav-count, .category-tag { font-size: var(--fs-xs); font-weight: var(--fw-semibold); }
+
+/* ---------- Forms ---------- */
+input, select, textarea { font-size: 1rem; line-height: 1.4; } /* 16px avoids iOS zoom */
+::placeholder { font-family: var(--font-sans); }
+
+/* ---------- Tables, metrics, money: tabular figures ---------- */
+table { font-size: var(--fs-base); }
+td { line-height: var(--lh-tight); }
+.metric-card strong, .metric-card b, .listing-price, .hero-proof strong, .hero-proof b,
+td, .nav-count {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.metric-card strong, .metric-card b, .hero-proof strong, .hero-proof b {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+}
+.listing-price { font-family: var(--font-sans); font-weight: var(--fw-bold); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .public-home h1, .sx-shell h1, .hero-copy h1 { line-height: 1.08; }
+  .page-heading h1 { font-size: 1.75rem; }
+  .section-heading h2, .public-section h2 { font-size: 1.5rem; }
+  table { font-size: var(--fs-sm); }
+}
